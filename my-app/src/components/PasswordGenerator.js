@@ -7,8 +7,8 @@ const PasswordGenerator = () => {
     const [useUpper, setUseUpper] = useState(true);
     const [useLower, setUseLower] = useState(true);
     const [useDigits, setUseDigits] = useState(true);
-    const [useSpecial, setUseSpecial] = useState(true);
-    const [excludeDuplicates, setExcludeDuplicates] = useState(true);	
+    const [useSpecial, setUseSpecial] = useState(false);
+    const [excludeDuplicates, setExcludeDuplicates] = useState(false);	
 
     const generatePassword = async () => {
         const response = await fetch(`http://localhost:5000/generate-password?length=${length}&use_upper=${useUpper}&use_lower=${useLower}&use_digits=${useDigits}&use_special=${useSpecial}&exclude_duplicates=${excludeDuplicates}`);
@@ -24,25 +24,24 @@ const PasswordGenerator = () => {
     return (
         <div className="password-generator">
             <h1>Password Generator</h1>
-            <button onClick={generatePassword}>Generate Password</button>
-            {password && (
-                <div>
-                    <input type="text" value={password} readOnly />
-                    <button onClick={copyToClipboard}>Copy to Clipboard</button>
-                </div>
-            )}
-            <div>
+            <input type="text" value={password} readOnly className="password-input" />
+            <div className="button-group">
+                <button onClick={generatePassword}>Generate Password</button>
+                <button onClick={copyToClipboard}>Copy to Clipboard</button>
+            </div>
+            <div className="slider-container">
                 <label>Password length:</label>
                 <input
                     type="range"
-                    min="4"
+                    min="8"
                     max="32"
                     value={length}
                     onChange={(e) => setLength(e.target.value)}
+					className="length-slider"
                 />
                 <span>{length}</span>
             </div>
-            <div>
+            <div className="character-options">
                 <label>Characters used:</label>
                 <label>
                     <input
