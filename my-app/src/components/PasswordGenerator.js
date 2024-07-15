@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './PasswordGenerator.css';
 
 const PasswordGenerator = () => {
     const [password, setPassword] = useState('');
+	const [displayPassword, setDisplayPassword] = useState('');
     const [length, setLength] = useState(8);
     const [useUpper, setUseUpper] = useState(true);
     const [useLower, setUseLower] = useState(true);
@@ -11,16 +12,25 @@ const PasswordGenerator = () => {
     const [excludeDuplicates, setExcludeDuplicates] = useState(false);	
 	const [strength, setStrength] = useState('');
 
+    useEffect(() => {
+        handleResize();
+        window.addEventListener('resize', handleResize);
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, [password]);
+
     const generatePassword = async () => {
         const response = await fetch(`http://localhost:5000/generate-password?length=${length}&use_upper=${useUpper}&use_lower=${useLower}&use_digits=${useDigits}&use_special=${useSpecial}&exclude_duplicates=${excludeDuplicates}`);
         const data = await response.json();
         setPassword(data.password);
 		calculateStrength(data.password);
+		handleResize();
     };
 
     const copyToClipboard = () => {
         navigator.clipboard.writeText(password);
-        alert("Password copied to clipboard");
+        alert("Password copied to clipboard!");
     };
 	
     const calculateStrength = (pwd) => {
@@ -49,13 +59,27 @@ const PasswordGenerator = () => {
         }
     };	
 
+    const handleResize = () => {
+        if (window.innerWidth < 500 && password.length >= 5 && password.length <= 32) {
+            setDisplayPassword(password.slice(0, 3) + '...');
+        } else if (window.innerWidth < 580 && password.length >= 10 && password.length <= 32) {
+            setDisplayPassword(password.slice(0, 5) + '...');
+        } else if (window.innerWidth < 800 && password.length >= 20 && password.length <= 32) {
+            setDisplayPassword(password.slice(0, 10) + '...');
+        } else if (window.innerWidth < 1050 && password.length <= 32) {
+            setDisplayPassword(password.slice(0, 20) + '...');
+        } else {
+            setDisplayPassword(password);
+        }
+    };
+
     return (
         <div className="password-generator">
             <h1>Password Generator</h1>
             <div className="password-container">
                 <input 
                     type="text" 
-                    value={password} 
+                    value={displayPassword} 
                     readOnly 
                     className={`password-input ${strength ? strength.toLowerCase() : ''}`} 
                 />
