@@ -52,15 +52,17 @@ const PasswordGenerator = () => {
     return (
         <div className="password-generator">
             <h1>Password Generator</h1>
-            <input 
-                type="text" 
-                value={password} 
-                readOnly 
-                className={`password-input ${strength ? strength.toLowerCase() : ''}`} 
-            />
-            {password && <div className={`strength-meter ${strength.toLowerCase()}`}>
-                {strength}
-            </div>}
+            <div className="password-container">
+                <input 
+                    type="text" 
+                    value={password} 
+                    readOnly 
+                    className={`password-input ${strength ? strength.toLowerCase() : ''}`} 
+                />
+                {password && <div className={`strength-meter ${strength.toLowerCase()}`}>
+                    {strength}
+                </div>}
+            </div>
             <div className="button-group">
                 <button onClick={generatePassword}>Generate Password</button>
                 <button onClick={copyToClipboard}>Copy to Clipboard</button>
