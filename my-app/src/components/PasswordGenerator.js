@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './PasswordGenerator.css';
+import moonIcon from '../assets/moon.png';
+import sunIcon from '../assets/sun.png';
 
 const PasswordGenerator = () => {
     const [password, setPassword] = useState('');
@@ -11,6 +13,7 @@ const PasswordGenerator = () => {
     const [useSpecial, setUseSpecial] = useState(false);
     const [excludeDuplicates, setExcludeDuplicates] = useState(false);	
 	const [strength, setStrength] = useState('');
+	const [isDarkTheme, setIsDarkTheme] = useState(false);
 
     useEffect(() => {
         handleResize();
@@ -73,8 +76,15 @@ const PasswordGenerator = () => {
         }
     };
 
+    const toggleTheme = () => {
+        setIsDarkTheme(prevTheme => !prevTheme);
+    };
+
     return (
-        <div className="password-generator">
+        <div className={`password-generator ${isDarkTheme ? 'dark-theme' : 'light-theme'}`}>
+            <div className="theme-switcher" onClick={toggleTheme}>
+                <img src={isDarkTheme ? sunIcon : moonIcon} alt="Theme Switcher" />
+            </div>
             <h1>Password Generator</h1>
             <div className="password-container">
                 <input 
