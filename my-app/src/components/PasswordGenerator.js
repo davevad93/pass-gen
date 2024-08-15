@@ -77,8 +77,8 @@ const PasswordGenerator = () => {
         }
     };
 
-    const toggleTheme = () => {
-        setIsDarkTheme(prevTheme => !prevTheme);
+    const handleThemeToggle = () => {
+        setIsDarkTheme(!isDarkTheme);
     };
 
     return (
