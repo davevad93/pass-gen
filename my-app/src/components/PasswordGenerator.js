@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import GitHubButton from 'react-github-btn';
 import './PasswordGenerator.css';
 import moonIcon from '../assets/moon.png';
 import sunIcon from '../assets/sun.png';
@@ -83,6 +84,35 @@ const PasswordGenerator = () => {
     return (
         <div className={`password-generator ${isDarkTheme ? 'dark-theme' : 'light-theme'}`}>
             <nav className="navbar">
+                <div className="left-section">
+                    <GitHubButton 
+                        href="https://github.com/davevad93" 
+                        data-size="large" 
+			            data-show-count="true" 
+						data-color-scheme={isDarkTheme ? "no-preference: light; light: light; light: dark;" : "no-preference: light; dark: light; light: light;"}
+                        aria-label="Follow @davevad93 on GitHub"
+                    >
+                        Follow @davevad93
+                    </GitHubButton>				
+					<GitHubButton 
+						href="https://github.com/davevad93/pass-gen/fork" 
+					    data-icon="octicon-repo-forked" 
+						data-size="large" 
+						data-color-scheme={isDarkTheme ? "no-preference: light; light: light; light: dark;" : "no-preference: light; dark: light; light: light;"}
+						aria-label="Fork davevad93/pass-gen on GitHub"
+						>
+							Fork
+					</GitHubButton>
+                    <GitHubButton 
+                        href="https://github.com/davevad93/pass-gen" 
+                        data-size="large" 
+						data-icon="octicon-star"
+						data-color-scheme={isDarkTheme ? "no-preference: light; light: light; light: dark;" : "no-preference: light; dark: light; light: light;"}
+                        aria-label="Star pass-gen on GitHub"
+                    >
+                        Star
+                    </GitHubButton>
+                </div>			
                 <div className="right-section">
                     <div className="theme-switcher" onClick={handleThemeToggle}>
                         {isDarkTheme ? 'Light Mode' : 'Dark Mode'}
