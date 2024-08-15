@@ -82,9 +82,14 @@ const PasswordGenerator = () => {
 
     return (
         <div className={`password-generator ${isDarkTheme ? 'dark-theme' : 'light-theme'}`}>
-            <div className="theme-switcher" onClick={toggleTheme}>
-                <img src={isDarkTheme ? sunIcon : moonIcon} alt="Theme Switcher" />
-            </div>
+            <nav className="navbar">
+                <div className="right-section">
+                    <div className="theme-switcher" onClick={handleThemeToggle}>
+                        {isDarkTheme ? 'Light Mode' : 'Dark Mode'}
+                        <img src={isDarkTheme ? sunIcon : moonIcon} alt="Theme Icon" />
+                    </div>
+                </div>
+            </nav>
             <h1>Password Generator</h1>
             <div className="password-container">
                 <input 
