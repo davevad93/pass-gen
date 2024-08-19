@@ -1,0 +1,25 @@
+{
+	"passgen": "Password Generator",
+    "generatePassword": "Generate Password",
+    "copyToClipboard": "Copy to Clipboard",
+    "passwordLength": "Password length",
+    "patterns": "Patterns",
+    "uppercase": "ABC",
+    "lowercase": "abc",
+    "digits": "123",
+    "specialChars": "#$&",
+    "excludeDuplicates": "Exclude Duplicate Characters",
+    "followOnGitHub": "Follow @{{user}} on GitHub",
+    "forkOnGitHub": "Fork",
+    "starOnGitHub": "Star",
+    "languages": "Languages",
+    "theme": "Theme",
+    "lightMode": "Light Mode",
+    "darkMode": "Dark Mode",
+    "strength": {
+        "godlike": "Godlike",
+        "strong": "Strong",
+        "average": "Average",
+        "weak": "Weak"
+    }	
+}
