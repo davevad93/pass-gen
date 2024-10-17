@@ -6,7 +6,7 @@ import string
 app = Flask(__name__)
 CORS(app)
 
-def generate_password(length=12, use_upper=True, use_lower=True, use_digits=True, use_special=False, exclude_duplicates=False):
+def generate_password(length=8, use_upper=True, use_lower=True, use_digits=True, use_special=False, exclude_duplicates=False):
     characters = ''
     if use_upper:
         characters += string.ascii_uppercase
@@ -27,7 +27,7 @@ def generate_password(length=12, use_upper=True, use_lower=True, use_digits=True
 @app.route('/generate-password', methods=['GET'])
 def get_password():
     try:
-        length = int(request.args.get('length', 12))
+        length = int(request.args.get('length', 8))
         use_upper = request.args.get('use_upper', 'true').lower() == 'true'
         use_lower = request.args.get('use_lower', 'true').lower() == 'true'
         use_digits = request.args.get('use_digits', 'true').lower() == 'true'
