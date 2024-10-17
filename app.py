@@ -26,15 +26,19 @@ def generate_password(length=12, use_upper=True, use_lower=True, use_digits=True
 
 @app.route('/generate-password', methods=['GET'])
 def get_password():
-    length = int(request.args.get('length', 12))
-    use_upper = request.args.get('use_upper', 'true').lower() == 'true'
-    use_lower = request.args.get('use_lower', 'true').lower() == 'true'
-    use_digits = request.args.get('use_digits', 'true').lower() == 'true'
-    use_special = request.args.get('use_special', 'false').lower() == 'true'
-    exclude_duplicates = request.args.get('exclude_duplicates', 'false').lower() == 'true'
-    
-    password = generate_password(length, use_upper, use_lower, use_digits, use_special, exclude_duplicates)
-    return jsonify(password=password)
+    try:
+        length = int(request.args.get('length', 12))
+        use_upper = request.args.get('use_upper', 'true').lower() == 'true'
+        use_lower = request.args.get('use_lower', 'true').lower() == 'true'
+        use_digits = request.args.get('use_digits', 'true').lower() == 'true'
+        use_special = request.args.get('use_special', 'false').lower() == 'true'
+        exclude_duplicates = request.args.get('exclude_duplicates', 'false').lower() == 'true'
+        
+        password = generate_password(length, use_upper, use_lower, use_digits, use_special, exclude_duplicates)
+        return jsonify(password=password)
+
+    except ValueError as e:
+        return jsonify(error=str(e)), 400
 
 if __name__ == '__main__':
     app.run(debug=True)
