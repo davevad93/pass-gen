@@ -1,25 +1,28 @@
 {
 	"passgen": "Password Generator",
-    "generatePassword": "Generate Password",
-    "copyToClipboard": "Copy to Clipboard",
+    "generatePassword": "Generate",
+    "copyToClipboard": "Copy",
+    "passwordCopied": "Password copied to clipboard!",
     "passwordLength": "Password length",
     "patterns": "Patterns",
     "uppercase": "ABC",
     "lowercase": "abc",
     "digits": "123",
     "specialChars": "#$&",
-    "excludeDuplicates": "Exclude Duplicate Characters",
-    "followOnGitHub": "Follow @{{user}} on GitHub",
+    "excludeDuplicates": "Exclude duplicate characters",
+    "unique_characters": "characters",
+    "single_digits": "digits",
+    "max_length_error": "{{maxUniqueChars}} {{selectedCharacterSets}} limit exceeded!",	
+    "followOnGitHub": "Follow @davevad93 on GitHub",
     "forkOnGitHub": "Fork",
     "starOnGitHub": "Star",
     "languages": "Languages",
-    "theme": "Theme",
-    "lightMode": "Light Mode",
-    "darkMode": "Dark Mode",
+    "languageSelector": "Language selector",
     "strength": {
-        "godlike": "Godlike",
+        "veryStrong": "Very Strong",
         "strong": "Strong",
-        "average": "Average",
-        "weak": "Weak"
+        "medium": "Medium",
+        "weak": "Weak",
+        "veryWeak": "Very Weak"
     }	
 }

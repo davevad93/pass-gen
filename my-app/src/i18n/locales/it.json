@@ -1,25 +1,28 @@
 {
 	"passgen": "Generatore di Password",
-    "generatePassword": "Genera Password",
-    "copyToClipboard": "Copia negli Appunti",
+    "generatePassword": "Genera",
+    "copyToClipboard": "Copia",
+    "passwordCopied": "Password copiata negli appunti!",
     "passwordLength": "Lunghezza Password",
     "patterns": "Modelli",
     "uppercase": "ABC",
     "lowercase": "abc",
     "digits": "123",
     "specialChars": "#$&",
-    "excludeDuplicates": "Escludi Caratteri Duplicati",
-    "followOnGitHub": "Segui @{{user}} su GitHub",
+    "excludeDuplicates": "Escludi caratteri duplicati",
+    "unique_characters": "caratteri",
+    "single_digits": "cifre",
+    "max_length_error": "Hai superato il limite di {{maxUniqueChars}} {{selectedCharacterSets}}!",
+    "followOnGitHub": "Segui @davevad93 su GitHub",
     "forkOnGitHub": "Forkare",
     "starOnGitHub": "Stella",
     "languages": "Lingue",
-    "theme": "Tema",
-    "lightMode": "Tema Chiaro",
-    "darkMode": "Tema Scuro",
+    "languageSelector": "Selettore di lingua",
     "strength": {
-        "godlike": "Eccezionale",
+        "veryStrong": "Molto Forte",
         "strong": "Forte",
-        "average": "Media",
-        "weak": "Debole"
-    }		
+        "medium": "Media",
+        "weak": "Debole",
+        "veryWeak": "Molto Debole"
+    }	
 }
