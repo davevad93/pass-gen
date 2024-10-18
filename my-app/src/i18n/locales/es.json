@@ -1,29 +1,28 @@
 {
     "passgen": "Generador de Contraseñas",
-    "generatePassword": "Generar Contraseña",
-    "copyToClipboard": "Copiar al Portapapeles",
+    "generatePassword": "Generar",
+    "copyToClipboard": "Copiar",
+    "passwordCopied": "Contraseña copiada al portapapeles!",
     "passwordLength": "Longitud de contraseña",
     "patterns": "Patrones",
     "uppercase": "ABC",
     "lowercase": "abc",
     "digits": "123",
     "specialChars": "#$&",
-    "excludeDuplicates": "Excluir Caracteres Duplicados",
-	"weak": "Débil",
-	"average": "Media",
-	"strong": "Fuerte",
-	"godlike": "Divina",	
-    "followOnGitHub": "Seguir @{{user}} en GitHub",
+    "excludeDuplicates": "Excluir caracteres duplicados",
+    "unique_characters": "caracteres",
+    "single_digits": "dígitos",
+    "max_length_error": "¡Has excedido el límite de {{maxUniqueChars}} {{selectedCharacterSets}}!",
+    "followOnGitHub": "Seguir @davevad93 en GitHub",
     "forkOnGitHub": "Bifurcar",
     "starOnGitHub": "Estrella",
     "languages": "Idiomas",
-    "theme": "Tema",
-    "lightMode": "Modo Claro",
-    "darkMode": "Modo Oscuro",
+    "languageSelector": "Selector de idioma",
     "strength": {
-        "godlike": "Increíble",
+        "veryStrong": "Muy Fuerte",
         "strong": "Fuerte",
-        "average": "Media",
-        "weak": "Débil"
-    }	
+        "medium": "Media",
+        "weak": "Débil",
+        "veryWeak": "Muy Débil"
+    }
 }
