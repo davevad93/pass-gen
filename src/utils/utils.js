@@ -1,11 +1,33 @@
-export const generatePasswordFromAPI = async (length, useUpper, useLower, useDigits, useSpecial, excludeDuplicates) => {
-    const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:5000';
-    const response = await fetch(
-        `${apiUrl}/generate-password?length=${length}&use_upper=${useUpper}&use_lower=${useLower}&use_digits=${useDigits}&use_special=${useSpecial}&exclude_duplicates=${excludeDuplicates}`
-    );
-    if (!response.ok) throw new Error('Failed to generate password');
-    return await response.json();
-};
+export function generatePassword({
+    length = 8,
+    useUpper = true,
+    useLower = true,
+    useDigits = true,
+    useSpecial = false,
+    excludeDuplicates = false
+}) {
+    let characters = '';
+    if (useUpper) characters += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    if (useLower) characters += 'abcdefghijklmnopqrstuvwxyz';
+    if (useDigits) characters += '0123456789';
+    if (useSpecial) characters += '!@#$%^&*()_+{}:"<>?|[];\',./`~';
+
+    if (characters.length === 0) return '';
+
+    let password = '';
+    if (excludeDuplicates) {
+        const charArray = Array.from(characters);
+        password = Array.from({ length }, () =>
+            charArray.splice(Math.floor(Math.random() * charArray.length), 1)
+        ).join('');
+    } else {
+        password = Array.from({ length }, () =>
+            characters[Math.floor(Math.random() * characters.length)]
+        ).join('');
+    }
+
+    return password;
+}
 
 export const getMaxUniqueCharacters = (useUpper, useLower, useDigits, useSpecial) => {
     let maxUniqueChars = 0;

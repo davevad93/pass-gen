@@ -8,7 +8,7 @@ import Footer from './Footer';
 import './css/PasswordGenerator.css';
 
 import {
-    generatePasswordFromAPI,
+    generatePassword,
     getMaxUniqueCharacters,
     validatePasswordLength,
     calculatePasswordStrength,
@@ -30,14 +30,21 @@ const PasswordGenerator = () => {
     const [maxUniqueCharsExceeded, setMaxUniqueCharsExceeded] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
 
-    const generatePassword = async () => {
+    const handleGeneratePassword = () => {
         if (maxUniqueCharsExceeded) return;
 
         try {
-            const data = await generatePasswordFromAPI(length, useUpper, useLower, useDigits, useSpecial, excludeDuplicates);
-            setPassword(data.password);
-            setDisplayPassword(data.password);
-            const strengthData = calculatePasswordStrength(data.password, useUpper, useLower, useDigits, useSpecial, t);
+            const newPassword = generatePassword({
+                length,
+                useUpper,
+                useLower,
+                useDigits,
+                useSpecial,
+                excludeDuplicates
+            });
+            setPassword(newPassword);
+            setDisplayPassword(newPassword);
+            const strengthData = calculatePasswordStrength(newPassword, useUpper, useLower, useDigits, useSpecial, t);
             setStrength(strengthData);
         } catch (error) {
             console.error('Error generating password:', error);
@@ -93,7 +100,7 @@ const PasswordGenerator = () => {
                 strength={strength}
             />
             <PasswordControls
-                generatePassword={generatePassword}
+                generatePassword={handleGeneratePassword}
                 copyToClipboard={copyToClipboard}
                 disabled={maxUniqueCharsExceeded}
                 t={t}
