@@ -1,0 +1,60 @@
+.navbar {
+    overflow: hidden;
+    background-color: #f8f4f4;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 0 0 10px 10px;
+    font-family: "Trebuchet MS", sans-serif;
+}
+
+.navbar .left-section,
+.navbar .right-section {
+    display: flex;
+    align-items: center;
+	margin-left: 15px;
+}
+
+.navbar .left-section {
+    gap: 10px;
+}
+
+/* Theme switcher adjustments */
+.theme-switcher {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+	margin-right: 15px;
+}
+
+.theme-switcher:active {
+    transform: scale(0.96);
+}
+
+.theme-switcher img {
+    width: 20px;
+    height: 20px;
+    margin-left: 5px;
+}
+
+/* Dark theme adjustments */
+.dark-theme .language-selector {
+    background-color: #333;
+    color: white;
+    border-color: #555;
+}
+
+.dark-theme .navbar {
+    background-color: #171717;
+    color: white;
+}
+
+.dark-theme .navbar .dark-theme .dropdown:hover {
+    background-color: #555;
+}

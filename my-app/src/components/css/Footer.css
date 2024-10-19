@@ -1,0 +1,27 @@
+.footer {
+    overflow: hidden;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    z-index: 1000;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 0 0 10px 10px;
+    font-family: "Trebuchet MS", sans-serif;
+}
+
+/* Dark theme */
+.password-generator.dark-theme .footer {
+    background-color: #171717;
+    color: white;
+}
+
+/* Light theme */
+.password-generator.light-theme .footer {
+    background-color: #f8f4f4;
+    color: black;
+}
