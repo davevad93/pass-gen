@@ -1,6 +1,8 @@
 # Pass-gen
 
 This is a simple, user-friendly password generator tool built with ReactJS designed to create secure and customized passwords.
+<br>
+To visit the website, click [here](https://passgen-b9of.onrender.com/).
 
 ## Key features:
  1. ### Customizable Options: 
