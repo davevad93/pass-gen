@@ -4,7 +4,7 @@ import './css/Footer.css';
 const Footer = () => {
     return (
         <footer className="footer">
-            © 2024 | Davide Presti
+            © 2024 - 2025 | Davide Presti
         </footer>
     );
 };
