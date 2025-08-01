@@ -15,7 +15,7 @@
     "react-scripts": "^5.0.1",
     "react-toastify": "^11.0.5",
     "rsuite": "^5.83.2",
-    "web-vitals": "^5.0.3"
+    "web-vitals": "^5.1.0"
   },
   "scripts": {
     "start": "react-scripts start",
